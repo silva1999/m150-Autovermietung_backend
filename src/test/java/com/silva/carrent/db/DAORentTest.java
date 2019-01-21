@@ -1,3 +1,11 @@
+/**
+ * @author 	Leandro Silva
+ * @date 	21.01.2019
+ * @version	1.0
+ * 
+ * 
+ * Test class
+ */
 package com.silva.carrent.db;
 
 import java.util.List;
@@ -11,7 +19,7 @@ public class DAORentTest {
 	private DAORent underTest = new DAORent();
 	
 	@Test
-	//@Ignore
+	@Ignore
 	public void rentCar_shouldSaveEntry(){
 		underTest.rentCar("10.01.2019", "11.01.2019", "okebeh999", 1);
 	}

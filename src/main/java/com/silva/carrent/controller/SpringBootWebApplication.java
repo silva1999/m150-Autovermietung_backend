@@ -1,3 +1,7 @@
+/**
+ * Source: http://www.mkyong.com/spring-boot/spring-boot-hello-world-example-jsp/
+ * This class was taken from this source. This class starts the spring rest application. 
+ */
 package com.silva.carrent.controller;
 
 import org.springframework.boot.SpringApplication;

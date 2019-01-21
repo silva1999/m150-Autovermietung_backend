@@ -1,3 +1,10 @@
+/**
+ * @author 	Leandro Silva
+ * @date 	21.01.2019
+ * @version	1.0
+ * 
+ * This class contains all endpoints. This is also the interface for the frontend application.
+ */
 package com.silva.carrent.controller;
 
 import java.util.List;
@@ -28,16 +35,32 @@ public class CarController {
 	
 	private CarrentService service = new CarrentServiceImpl();
 
+	/**
+	 * Service returns all cars
+	 * @return car list
+	 */
 	@RequestMapping(value="/cars", method = RequestMethod.GET)
 	public List<Car> getCars() {
 		return service.getCars();
 	}
 	
+	/**
+	 * Service returns car if existing
+	 * @param carId
+	 * @return car
+	 */
 	@RequestMapping(value = "/cars/{id}", method = RequestMethod.GET)
 	public Car getCar(@PathVariable("id") String carId) {
 		return service.getCar(carId);
 	}
 	
+	/**
+	 * This service checks the credentials of an user.
+	 * @param username
+	 * @param password
+	 * @return user credentials
+	 * @throws UserNotLoggedInException
+	 */
 	@RequestMapping(value = "/user/login", method = RequestMethod.GET)
 	public User login(@RequestParam("username") String username, 
 			@RequestParam("password") String password) throws UserNotLoggedInException {
@@ -48,6 +71,14 @@ public class CarController {
 		return user;
 	}
 	
+	/**
+	 * Service to rent a car.
+	 * @param carId
+	 * @param userId
+	 * @param startdate
+	 * @param enddate
+	 * @throws Exception
+	 */
 	@RequestMapping(value = "/rent/{id}", method = RequestMethod.POST)
 	public void rentCar(@PathVariable("id") String carId,
 			@RequestParam("userId") String userId, @RequestParam("startdate") String startdate,
@@ -61,6 +92,11 @@ public class CarController {
 		}
 	}
 	
+	/**
+	 * This method handles all exceptions
+	 * @param exception
+	 * @return exception
+	 */
 	@ExceptionHandler({Exception.class})
 	public ResponseEntity<Object> handleException(Exception exception){
 		ErrorResponse errorResponse = new ErrorResponse(exception.getMessage());

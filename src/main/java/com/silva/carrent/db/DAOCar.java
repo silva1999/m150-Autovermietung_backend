@@ -1,3 +1,10 @@
+/**
+ * @author 	Leandro Silva
+ * @date 	21.01.2019
+ * @version	1.0
+ * 
+ * Class to make database changes.
+ */
 package com.silva.carrent.db;
 
 import java.util.List;
@@ -9,6 +16,10 @@ import org.hibernate.Transaction;
 
 public class DAOCar {
 
+	/**
+	 * Get all cars
+	 * @return carList
+	 */
 	public List<CarEntity> getCarList() {
 		String hql = "FROM CarEntity";
 		Session session = DBConnector.getSession();
@@ -30,6 +41,11 @@ public class DAOCar {
 		return null;
 	}
 	
+	/**
+	 * Get specific car by id
+	 * @param id
+	 * @return car
+	 */
 	public CarEntity getCarById(Integer id) {
 		String hql = "FROM CarEntity where id = " + id;
 		Session session = DBConnector.getSession();

@@ -1,3 +1,10 @@
+/**
+ * @author 	Leandro Silva
+ * @date 	21.01.2019
+ * @version	1.0
+ * 
+ * Class maps entity class to response class
+ */
 package com.silva.carrent.service.mapper;
 
 import java.text.ParseException;
@@ -10,6 +17,13 @@ import com.silva.carrent.service.CarrentService.RentCarStatus;
 
 public class RentMapper {
 	
+	/**
+	 * Map to response status
+	 * @param rentEntityList
+	 * @param startDate
+	 * @param endDate
+	 * @return response status
+	 */
 	public static RentCarStatus mapToStatus(List<RentEntity> rentEntityList, String startDate, String endDate){
 		try {
 			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
