@@ -1,3 +1,10 @@
+/**
+ * @author 	Leandro Silva
+ * @date 	21.01.2019
+ * @version	1.0
+ * 
+ * implementation of interface
+ */
 package com.silva.carrent.service;
 
 import java.util.List;
@@ -60,6 +67,12 @@ public class CarrentServiceImpl implements CarrentService{
 		return status;
 	}
 	
+	/**
+	 * Service calculates money for user, and saves it
+	 * @param userEntity
+	 * @param car
+	 * @return userEntity
+	 */
 	private UserEntity calculateMoney(UserEntity userEntity, Car car){
 		Integer payments = Integer.valueOf(userEntity.getPayments());
 		Integer price = Integer.valueOf(car.getPrice());
@@ -69,6 +82,11 @@ public class CarrentServiceImpl implements CarrentService{
 		return userEntity;
 	}
 	
+	/**
+	 * Check if user has enough money
+	 * @param userEntity
+	 * @return boolean
+	 */
 	private boolean userHasEnoughMoney(UserEntity userEntity){
 		Integer limit = Integer.valueOf(userEntity.getLimit());
 		Integer payments = Integer.valueOf(userEntity.getPayments());

@@ -1,3 +1,11 @@
+/**
+ * @author 	Leandro Silva
+ * @date 	21.01.2019
+ * @version	1.0
+ * 
+ * 
+ * Test class
+ */
 package com.silva.carrent.db;
 
 import org.junit.Assert;

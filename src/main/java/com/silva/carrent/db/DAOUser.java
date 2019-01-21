@@ -1,14 +1,25 @@
+/**
+ * @author 	Leandro Silva
+ * @date 	21.01.2019
+ * @version	1.0
+ * 
+ * Class to make database changes.
+ */
 package com.silva.carrent.db;
 
 import java.util.List;
 
-import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class DAOUser {
 	
+	/**
+	 * Method searches user by username
+	 * @param username
+	 * @return userEntity
+	 */
 	public UserEntity getUserByUsername(String username) {
 		String hql = "FROM UserEntity u WHERE u.username ='" + username +"'";
 		Session session = DBConnector.getSession();
@@ -31,6 +42,11 @@ public class DAOUser {
 		return null;
 	}
 	
+	/**
+	 * Method searches user by userId
+	 * @param userId
+	 * @return userEntity
+	 */
 	public UserEntity getUserByUserId(String userId) {
 		String hql = "FROM UserEntity u WHERE u.userId ='" + userId + "'";
 		Session session = DBConnector.getSession();
@@ -52,6 +68,10 @@ public class DAOUser {
 		return null;
 	}
 	
+	/**
+	 * update user in db
+	 * @param userEntity
+	 */
 	public void update(UserEntity userEntity) {
 		String hql = "update UserEntity SET payments = '" + userEntity.getPayments() +
 				"' WHERE userId ='" + userEntity.getUserId() + "'";
